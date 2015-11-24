@@ -13,6 +13,7 @@ Important:
 
 - Logs are at /var/log/supervisor so you can map that directory
 - Application root directory is /var/www so make sure you map the application there
+- The web root in this container /var/www/docroot this is set up to match how Acquia Repos are structured.
 - Nginx configuration was provided by https://github.com/perusio/drupal-with-nginx but it's modified
 
 ## To build
@@ -27,14 +28,28 @@ Important:
 ## To run
 Nginx will look for files in /var/www so you need to map your application to that directory.
 
-    $ docker run -d -p 8000:80 -v application:/var/www yourname/nginx-drupal
+**The actual site will be run from /var/www/docroot** 
+
+```bash
+docker run -d -p 8000:80 -v application:/var/www yourname/nginx-drupal
+```
 
 If you want to link the container to a MySQL/MariaDB contaier do:
 
-    $ docker run -d -p 8000:80 -v application:/var/www my_mysql_container:mysql yourname/nginx-drupal
+```bash
+docker run -d -p 8000:80 -v application:/var/www my_mysql_container:mysql yourname/nginx-drupal
+```
 
 The startup.sh script will add the environment variables with MYSQL_ to /etc/php5/fpm/pool.d/env.conf so PHP-FPM detects them. If you need to use them you can do:
 <?php getenv("SOME_ENV_VARIABLE_THAT_HAS_MYSQL_IN_THE_NAME"); ?>
+
+## Other Notes
+- The -e PHP_OPCACHE will turn the opcache on or off when you run the container
+- Mount Script will run automatically on startup it is designed if you need to mount a folder for configs or shared files.
+
+```bash
+docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:latest
+```
 
 ## Fig
 
