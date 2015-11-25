@@ -8,14 +8,9 @@ RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 
-#ENV SMTP_HOST smtp.gmail.com
-#ENV SMTP_PORT 587
-#ENV SMTP_FROMNAME My Name
-#ENV SMTP_USERNAME username@example.com
-#ENV SMTP_PASSWORD secret
-
 ENV TERM xterm
 ENV PHP_OPCACHE enabled
+
 # Update system
 RUN apt-get update && apt-get dist-upgrade -y
 
@@ -48,7 +43,6 @@ RUN chown -R www-data:www-data /var/www
 EXPOSE 80
 EXPOSE 443
 WORKDIR /var/www
-VOLUME ["/var/www/sites/default/files"]
 CMD ["/usr/bin/supervisord", "-n"]
 
 # Startup script
@@ -56,27 +50,8 @@ CMD ["/usr/bin/supervisord", "-n"]
 ADD ./startup.sh /opt/startup.sh
 RUN chmod +x /opt/startup.sh
 
-#ADD ./mail.sh /opt/mail.sh
-#RUN chmod +x /opt/mail.sh
-
 ADD ./cron.sh /opt/cron.sh
 RUN chmod +x /opt/cron.sh
-
-# We want it empty
-#RUN touch /etc/msmtprc
-#RUN chgrp mail /etc/msmtprc
-#RUN chmod 660 /etc/msmtprc
-#RUN touch /var/log/supervisor/msmtp.log
-#RUN chgrp mail /var/log/supervisor/msmtp.log
-#RUN chmod 660 /var/log/supervisor/msmtp.log
-#RUN adduser www-data mail
-
-#RUN rm /usr/sbin/sendmail
-#RUN rm /usr/lib/sendmail
-
-#RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
-#RUN ln -s /usr/bin/msmtp /usr/bin/sendmail
-#RUN ln -s /usr/bin/msmtp /usr/lib/sendmail
 
 RUN mkdir -p /var/cache/nginx/microcache
 
