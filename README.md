@@ -1,6 +1,15 @@
 # Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7
-This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7.
-It can run Drupal 6 but most likelly you'll have PHP errors depending on the modules you have installed. In that case is recommended to use the image iiiepe/nginx-drupal6 or iiiepe/apache-drupal6
+This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7 and it is 
+designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
+on Acquia.
+
+- Repository root --> /var/www
+ - docroot --> /var/www/docroot *drupal instance*
+   - sites
+   - core
+   - ...
+ - scripts
+ - tools
 
 Includes:
 
@@ -60,12 +69,13 @@ docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.
       environment:
         MYSQL_ROOT_PASSWORD: 123
     web:
-      image: iiiepe/nginx-drupal
+      image: espressodev/nginx-drupal
       volumes:
         - application:/var/www
         - logs:/var/log/supervisor
       ports:
         - "80:80"
+        - "443:443"
       links:
         - "mysql:mysql"
 
