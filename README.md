@@ -3,11 +3,11 @@ This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
 on Acquia.
 
+**Drupal Site Code must be located /var/www/docroot**
+
 - Repository root --> /var/www
- - docroot --> /var/www/docroot *drupal instance*
+ - docroot --> /var/www/docroot
    - sites
-   - core
-   - ...
  - scripts
  - tools
 
