@@ -23,7 +23,7 @@ RUN apt-get -y install nginx-extras git curl supervisor
 RUN apt-get -y install nano
 
 #XDEBUG
-sudo pecl install xdebug
+RUN yes '' | pecl install -f xdebug
 
 RUN php5enmod mcrypt
 
