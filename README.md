@@ -73,6 +73,7 @@ docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.
       volumes:
         - application:/var/www
         - logs:/var/log/supervisor
+        - mountscript:/usr/local/bin/mount.sh
       ports:
         - "80:80"
         - "443:443"
