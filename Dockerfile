@@ -44,6 +44,10 @@ RUN chown -R www-data:www-data /var/www
 
 EXPOSE 80
 EXPOSE 443
+
+#For XDEBUG
+EXPOSE 9000
+
 WORKDIR /var/www
 CMD ["/usr/bin/supervisord", "-n"]
 
