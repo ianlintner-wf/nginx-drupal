@@ -3,6 +3,10 @@ This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
 on Acquia.
 
+This repo is a fork of: https://github.com/iiiepe/docker-nginx-drupal if your site does not use docroot format
+this container maybe a better option.
+
+
 **Drupal Site Code must be located /var/www/docroot**
 
 - Repository root --> /var/www
@@ -10,15 +14,20 @@ on Acquia.
    - sites
  - scripts
  - tools
-
-Includes:
-
+ 
+## Packages included
 - nginx
 - php
 - composer
 - drush
 
-Important:
+### Other changes from the original repo
+* Added SSL cert for https and nginx config is set to serve https/ssl
+* Removed the mail server configuration. Use drupal SMTP module with mailcatcher.
+
+[MailCatcher](https://hub.docker.com/r/zolweb/docker-mailcatcher/~/dockerfile/)
+
+## Important:
 
 - Logs are at /var/log/supervisor so you can map that directory
 - Application root directory is /var/www so make sure you map the application there
