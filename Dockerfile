@@ -18,9 +18,12 @@ RUN apt-get update && apt-get dist-upgrade -y
 RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && chmod +x /usr/sbin/policy-rc.d
 
 # Basic packages
-RUN apt-get -y install php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-cli php5-gd php5-pgsql php5-sqlite php5-common php-pear curl php5-json php5-redis php5-memcache 
+RUN apt-get -y install php5-fpm php5-dev php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-cli php5-gd php5-pgsql php5-sqlite php5-common php-pear curl php5-json php5-redis php5-memcache
 RUN apt-get -y install nginx-extras git curl supervisor
 RUN apt-get -y install nano
+
+#XDEBUG
+sudo pecl install xdebug
 
 RUN php5enmod mcrypt
 
