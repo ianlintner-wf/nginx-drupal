@@ -71,7 +71,7 @@ docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.
 
 ## Drush & Console Table 
 **IF PEAR IS DOWN**
-Pear is currently down in the temporary to get drush running there is a copy of the console table on my repo in github. It can be downloaded and installed in the package location
+In the temporary to get drush running there is a copy of the console table on my repo in github. It can be downloaded and installed in the package location
 
 ```bash
 cd /tmp
