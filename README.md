@@ -69,6 +69,17 @@ The startup.sh script will add the environment variables with MYSQL_ to /etc/php
 docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:latest
 ```
 
+## Drush & Console Table 
+**IF PEAR IS DOWN**
+Pear is currently down in the temporary to get drush running there is a copy of the console table on my repo in github. It can be downloaded and installed in the package location
+
+```bash
+cd /tmp
+curl -O https://raw.githubusercontent.com/ianlintner-wf/drush_console_table/master/Table.php
+mkdir -p  ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/
+cp Table.php ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/Table.php
+```
+
 ## Fig
 
     mysql:
