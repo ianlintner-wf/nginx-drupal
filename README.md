@@ -69,7 +69,16 @@ The startup.sh script will add the environment variables with MYSQL_ to /etc/php
 docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:latest
 ```
 
-## Drush & Console Table 
+### XDEBUG
+If you want to use xdebug there is a tag. It sends the connections back to the default docker bridge on port 9000.
+The debug key is *dgbp*
+
+```bash
+docker run -d -e PHP_OPCACHE=disabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:xdebug
+```
+
+
+### Drush & Console Table 
 **IF PEAR IS DOWN**
 In the temporary to get drush running there is a copy of the console table on my repo in github. It can be downloaded and installed in the package location
 
@@ -79,6 +88,7 @@ curl -O https://raw.githubusercontent.com/ianlintner-wf/drush_console_table/mast
 mkdir -p  ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/
 cp Table.php ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/Table.php
 ```
+
 
 ## Fig
 
