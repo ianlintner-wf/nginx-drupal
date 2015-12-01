@@ -72,6 +72,7 @@ ADD ./config/supervisor/supervisord-nginx.conf /etc/supervisor/conf.d/supervisor
 # PHP
 ADD ./config/php/www.conf /etc/php5/fpm/pool.d/www.conf
 ADD ./config/php/php.ini /etc/php5/fpm/php.ini
+ADD ./config/php/20-xdebug.ini /etc/php5/fpm/conf.d/20-xdebug.ini
 
 # Nginx
 ADD ./config/nginx/blacklist.conf /etc/nginx/blacklist.conf
