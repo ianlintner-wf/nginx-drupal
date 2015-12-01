@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7](#docker-image-with-nginx-and-php-559-optimized-for-drupal-7)
+  - [Packages included](#packages-included)
+    - [Other changes from the original repo](#other-changes-from-the-original-repo)
+  - [Important:](#important)
+  - [To build](#to-build)
+  - [To run](#to-run)
+  - [Other Notes](#other-notes)
+    - [XDEBUG](#xdebug)
+    - [Drush & Console Table](#drush-&-console-table)
+  - [Fig](#fig)
+  - [Running Drush](#running-drush)
+    - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7
 This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7 and it is 
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
