@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7](#docker-image-with-nginx-and-php-559-optimized-for-drupal-7)
+  - [Packages included](#packages-included)
+    - [Other changes from the original repo](#other-changes-from-the-original-repo)
+  - [Important:](#important)
+  - [To build](#to-build)
+  - [To run](#to-run)
+  - [Other Notes](#other-notes)
+    - [XDEBUG](#xdebug)
+    - [Drush & Console Table](#drush-&-console-table)
+  - [Fig](#fig)
+  - [Running Drush](#running-drush)
+    - [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7
 This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7 and it is 
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
@@ -68,6 +87,27 @@ The startup.sh script will add the environment variables with MYSQL_ to /etc/php
 ```bash
 docker run -d -e PHP_OPCACHE=enabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:latest
 ```
+
+### XDEBUG
+If you want to use xdebug there is a tag. It sends the connections back to the default docker bridge on port 9000.
+The debug key is *dgbp*
+
+```bash
+docker run -d -e PHP_OPCACHE=disabled -v "application:/var/www"  -v "mountscript.sh:/usr/local/bin/mount.sh"  espressodev/nginx-drupal:xdebug
+```
+
+
+### Drush & Console Table 
+**IF PEAR IS DOWN**
+In the temporary to get drush running there is a copy of the console table on my repo in github. It can be downloaded and installed in the package location
+
+```bash
+cd /tmp
+curl -O https://raw.githubusercontent.com/ianlintner-wf/drush_console_table/master/Table.php
+mkdir -p  ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/
+cp Table.php ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/Table.php
+```
+
 
 ## Fig
 
