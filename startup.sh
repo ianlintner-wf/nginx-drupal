@@ -39,5 +39,5 @@ done
 #echo "ff02::1	ip6-allnodes" >> /etc/hosts
 #echo "ff02::2	ip6-allrouters" >> /etc/hosts
 
-if [ "$PHP_OPCACHE" == "disabled" ]; then sed -i 's/$zend_extension=opcache.so/;zend_extension=opcache.so/' /etc/php5/fpm/conf.d/05-opcache.ini; php5-fpm restart; fi
-if [ "$PHP_OPCACHE" == "enabled" ]; then sed -i 's/;$zend_extension=opcache.so/zend_extension=opcache.so/' /etc/php5/fpm/conf.d/05-opcache.ini; php5-fpm restart; fi
+if [ "$PHP_OPCACHE" == "disabled" ]; then sed -i 's/$zend_extension=opcache.so/;zend_extension=opcache.so/'; fi
+if [ "$PHP_OPCACHE" == "enabled" ]; then sed -i 's/;$zend_extension=opcache.so/zend_extension=opcache.so/'; fi
