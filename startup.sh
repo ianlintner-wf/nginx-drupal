@@ -8,8 +8,12 @@ echo "Configuring Nginx and PHP5-FPM with environment variables"
 echo '[www]' > $ENV_CONF
 for var in $(env | awk -F= '{print $1}')
 do
-	echo "Adding variable {$var}"
-	echo "env[${var}] = ${!var}" >> $ENV_CONF
+  if [[ ${!var} =~ [=:\;] ]] ; then
+    echo "Bad Value Not Added!"
+  else
+    echo "Adding variable {$var}"
+	  echo "env[${var}] = ${!var}" >> $ENV_CONF
+  fi
 done
 
 # We need to configure the /etc/hosts file so sendmail works properly
