@@ -8,11 +8,11 @@ echo "Configuring Nginx and PHP5-FPM with environment variables"
 echo '[www]' > $ENV_CONF
 for var in $(env | awk -F= '{print $1}')
 do
-  if [[ ${!var} =~ [=\;] ]] ; then
+  if [[ ${!var} =~ [=\"] ]] ; then
     echo "Bad Value Not Added!"
   else
     echo "Adding variable {$var}"
-	  echo "env[${var}] = ${!var}" >> $ENV_CONF
+	  echo "env[${var}] =\"${!var}\"" >> $ENV_CONF
   fi
 done
 
