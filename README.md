@@ -18,6 +18,8 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7
+
+[![Join the chat at https://gitter.im/ianlintner-wf/nginx-drupal](https://badges.gitter.im/ianlintner-wf/nginx-drupal.svg)](https://gitter.im/ianlintner-wf/nginx-drupal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7 and it is 
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
 on Acquia.
