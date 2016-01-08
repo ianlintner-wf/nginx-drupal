@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ianlintner-wf/nginx-drupal.svg?branch=master)](https://travis-ci.org/ianlintner-wf/nginx-drupal)
 [![Join the chat at https://gitter.im/ianlintner-wf/nginx-drupal](https://badges.gitter.im/ianlintner-wf/nginx-drupal.svg)](https://gitter.im/ianlintner-wf/nginx-drupal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
