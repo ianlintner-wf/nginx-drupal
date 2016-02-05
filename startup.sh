@@ -11,8 +11,12 @@ do
   if [[ ${!var} =~ [=\"] ]] ; then
     echo "Bad Value Not Added!"
   else
-    echo "Adding variable {$var}"
-	  echo "env[${var}] =\"${!var}\"" >> $ENV_CONF
+    if [[ ! -z ${!var} ]] ; then
+      echo "Adding variable {$var}"
+	    echo "env[${var}] =\"${!var}\"" >> $ENV_CONF
+	  else
+	    echo "Empty variable"
+    fi
   fi
 done
 
