@@ -69,7 +69,7 @@ ADD ./config/php/php.ini /etc/php5/fpm/php.ini
 
 # Nginx
 ADD ./config/nginx/blacklist.conf /etc/nginx/blacklist.conf
-ADD ./config/nginx/drupal.aconf /etc/nginx/drupal.conf
+ADD ./config/nginx/drupal.conf /etc/nginx/drupal.conf
 ADD ./config/nginx/drupal_upload_progress.conf /etc/nginx/drupal_upload_progress.conf
 ADD ./config/nginx/fastcgi.conf /etc/nginx/fastcgi.conf
 ADD ./config/nginx/fastcgi_drupal.conf /etc/nginx/fastcgi_drupal.conf
