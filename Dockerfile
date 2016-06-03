@@ -21,6 +21,7 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && chmod +x /usr/sbin/pol
 RUN apt-get -y install php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-cli php5-gd php5-pgsql php5-sqlite php5-common php-pear curl php5-json php5-redis php5-memcache 
 RUN apt-get -y install nginx-extras git curl supervisor
 RUN apt-get -y install nano
+RUN apt-get -y install mysql-client
 
 RUN php5enmod mcrypt
 
@@ -68,7 +69,7 @@ ADD ./config/php/php.ini /etc/php5/fpm/php.ini
 
 # Nginx
 ADD ./config/nginx/blacklist.conf /etc/nginx/blacklist.conf
-ADD ./config/nginx/drupal.conf /etc/nginx/drupal.conf
+ADD ./config/nginx/drupal.aconf /etc/nginx/drupal.conf
 ADD ./config/nginx/drupal_upload_progress.conf /etc/nginx/drupal_upload_progress.conf
 ADD ./config/nginx/fastcgi.conf /etc/nginx/fastcgi.conf
 ADD ./config/nginx/fastcgi_drupal.conf /etc/nginx/fastcgi_drupal.conf
