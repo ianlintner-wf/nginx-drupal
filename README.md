@@ -27,6 +27,8 @@ This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
 on Acquia.
 
+** This is not intended to be a production ready instance. My current use is for local development with sites being hosted on Acquia Cloud. **
+
 This repo is a fork of: https://github.com/iiiepe/docker-nginx-drupal if your site does not use docroot format
 this container maybe a better option.
 
