@@ -14,7 +14,7 @@
   - [Other Notes](#other-notes)
     - [XDEBUG](#xdebug)
     - [Drush & Console Table](#drush-&-console-table)
-  - [Fig](#fig)
+  - [Docker Compose](#fig)
   - [Running Drush](#running-drush)
     - [License](#license)
 
@@ -50,6 +50,8 @@ this container maybe a better option.
 * Removed the mail server configuration. Use drupal SMTP module with mailcatcher.
 
 [MailCatcher](https://hub.docker.com/r/zolweb/docker-mailcatcher/~/dockerfile/)
+
+* Added mysql client for use with Drush SQL Commands
 
 ## Important:
 
@@ -115,6 +117,8 @@ cp Table.php ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/Table.php
 
 
 ## Fig
+
+AKA Docker Compose 
 
     mysql:
       image: mysql
