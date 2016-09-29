@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/ianlintner-wf/nginx-drupal.svg?branch=master)](https://travis-ci.org/ianlintner-wf/nginx-drupal)
+[![Join the chat at https://gitter.im/ianlintner-wf/nginx-drupal](https://badges.gitter.im/ianlintner-wf/nginx-drupal.svg)](https://gitter.im/ianlintner-wf/nginx-drupal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -11,16 +14,20 @@
   - [Other Notes](#other-notes)
     - [XDEBUG](#xdebug)
     - [Drush & Console Table](#drush-&-console-table)
-  - [Fig](#fig)
+  - [Docker Compose](#fig)
   - [Running Drush](#running-drush)
     - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Docker image with Nginx and PHP 5.5.9 optimized for Drupal 7
+
+
 This image is build using Ubuntu 14.04 with Nginx and PHP 5.5.9 and is optimized to run Drupal 7 and it is 
 designed to use the docroot which is how Acquia repositories are setup if you are hosting your production site
 on Acquia.
+
+** This is not intended to be a production ready instance. My current use is for local development with sites being hosted on Acquia Cloud. **
 
 This repo is a fork of: https://github.com/iiiepe/docker-nginx-drupal if your site does not use docroot format
 this container maybe a better option.
@@ -45,6 +52,8 @@ this container maybe a better option.
 * Removed the mail server configuration. Use drupal SMTP module with mailcatcher.
 
 [MailCatcher](https://hub.docker.com/r/zolweb/docker-mailcatcher/~/dockerfile/)
+
+* Added mysql client for use with Drush SQL Commands
 
 ## Important:
 
@@ -110,6 +119,8 @@ cp Table.php ~/.composer/vendor/drush/drush/lib/Console_Table-1.1.3/Table.php
 
 
 ## Fig
+
+AKA Docker Compose 
 
     mysql:
       image: mysql
