@@ -34,7 +34,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Composer and Drush
 RUN /usr/local/bin/composer self-update
-RUN /usr/local/bin/composer global require drush/drush:6.*
+RUN /usr/local/bin/composer global require drush/drush:8.*
 RUN ln -s /root/.composer/vendor/drush/drush/drush /usr/local/bin/drush
 
 # Prepare directory
