@@ -18,10 +18,13 @@ RUN apt-get update && apt-get dist-upgrade -y
 RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && chmod +x /usr/sbin/policy-rc.d
 
 # Basic packages
-RUN apt-get -y install php5-fpm php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-cli php5-gd php5-pgsql php5-sqlite php5-common php-pear curl php5-json php5-redis php5-memcache 
+RUN apt-get -y install php5-fpm php5-dev php5-mysql php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-cli php5-gd php5-pgsql php5-sqlite php5-common php-pear curl php5-json php5-redis php5-memcache
 RUN apt-get -y install nginx-extras git curl supervisor
 RUN apt-get -y install nano
 RUN apt-get -y install mysql-client
+
+#XDEBUG
+RUN yes '' | pecl install -f xdebug
 
 RUN php5enmod mcrypt
 
@@ -42,6 +45,10 @@ RUN chown -R www-data:www-data /var/www
 
 EXPOSE 80
 EXPOSE 443
+
+#For XDEBUG
+EXPOSE 9000
+
 WORKDIR /var/www
 CMD ["/usr/bin/supervisord", "-n"]
 
@@ -66,6 +73,7 @@ ADD ./config/supervisor/supervisord-nginx.conf /etc/supervisor/conf.d/supervisor
 # PHP
 ADD ./config/php/www.conf /etc/php5/fpm/pool.d/www.conf
 ADD ./config/php/php.ini /etc/php5/fpm/php.ini
+ADD ./config/php/20-xdebug.ini /etc/php5/fpm/conf.d/20-xdebug.ini
 
 # Nginx
 ADD ./config/nginx/blacklist.conf /etc/nginx/blacklist.conf
